@@ -1,0 +1,302 @@
+\documentclass[12pt,a4paper]{scrreprt}
+
+%\usepackage[utf8]{inputenc}
+\usepackage[style=ddmmyyyy]{datetime2}
+\usepackage{draftwatermark}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{chngcntr}
+
+\KOMAoptions{titlepage=false}
+\KOMAoptions{parskip=never}
+
+\renewcommand*\DTMdisplaydate[4]{%
+  \number#3.\number#2.\number#1%
+}
+
+\renewcommand{\thechapter}{\Roman{chapter}}
+
+\RedeclareSectionCommand[
+  beforeskip=2em,
+  afterskip=1em,
+  font=\normalfont\bfseries\Large
+]{chapter}
+
+\geometry{
+  left=2.5cm,
+  right=2.0cm,
+  top=2.5cm,
+  bottom=2.5cm
+}
+
+% No paragraph indentation
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.7em}
+
+% German legal section style: § 1, § 2, ...
+\counterwithout{section}{chapter}
+\renewcommand{\thesection}{\S~\arabic{section}}
+
+\RedeclareSectionCommand[
+  beforeskip=0.5em,
+  afterskip=0.1em,
+  font=\normalfont\bfseries\large
+]{section}
+
+% Legal paragraph counter: (1), (2), ...
+\newcounter{absatz}[section]
+\renewcommand{\theabsatz}{(\arabic{absatz})}
+
+\newcommand{\abs}{%a
+  \refstepcounter{absatz}%
+  \par\vspace{0.5em}%
+  \noindent
+  \makebox[2.2em][l]{\theabsatz}%
+}
+
+% Legal clause lists:
+% 1.
+% 2.
+%   a)
+%   b)
+%     aa)
+%     bb)
+
+\newlist{legalenum}{enumerate}{4}
+
+\setlist[legalenum,1]{
+  label=\alph*.,
+  leftmargin=3.2em,
+  labelsep=0.8em,
+  itemsep=-0.5em,
+  topsep=-0.5em
+}
+
+\setlist[legalenum,2]{
+  label=\alph*),
+  leftmargin=2.8em,
+  labelsep=0.8em,
+  itemsep=-0.5em,
+  topsep=-0.5em
+}
+
+\setlist[legalenum,3]{
+  label=\alph{legalenumiii}\alph{legalenumiii}),
+  leftmargin=3.2em,
+  labelsep=0.8em,
+  itemsep=-0.5em,
+  topsep=-0.5em
+}
+
+\setlist[legalenum,4]{
+  label=(\roman*),
+  leftmargin=3.2em,
+  labelsep=0.8em,
+  itemsep=-0.5em,
+  topsep=-0.5em
+}
+
+\SetWatermarkText{ENTWURF}
+\SetWatermarkScale{1}
+\title{Ordnung des AR-MBSB}
+\date{Vom: \today}
+
+\newcommand{\inlinechapter}[1]{%
+  \refstepcounter{chapter}%
+  \addcontentsline{toc}{chapter}{\protect\numberline{\thechapter}#1}%
+  \par\vspace{2em}%
+  {\normalfont\bfseries\Large \thechapter\quad #1\par}%
+  \vspace{0em}%
+}
+
+\makeatletter
+\renewcommand*\tableofcontents{%
+  \section*{\contentsname}
+  {\setlength{\parskip}{0pt}%
+   \@starttoc{toc}}%
+}
+\makeatother
+
+\makeatletter
+\renewcommand{\maketitle}{
+    \begin{center}
+        {\Large\bfseries \@title\par}
+        \vspace{0em}
+        {\normalsize \@date\par}
+        \vspace{-1em}
+        {\normalsize \@author\par}
+    \end{center}
+}
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\newpage
+\inlinechapter{Allgemeine Bestimmungen}
+
+\section{Das AR-MBSB}\label{sec:armbsb}
+\abs\label{abs:definition-armbsb} Das Autonomen Referats für Menschen mit Behinderungen und sämtlichen Beeinträchtigungen (AR-MBSB) ist ein autonomes Referat der Studierendenschaft der Ruhr‑Universität Bochum (RUB) zur Vertretung der hochschulpolitischen, sozialen und kulturellen Interessen von Studierenden mit Behinderungen, chronischen oder psychischen Erkrankungen sowie sämtlichen sonstigen Beeinträchtigungen, gemäß § 53 Abs. 5 HG NRW.
+\abs Das AR‑MBSB ist ein durch das Studierendenparlament (StuPa) eingerichtetes autonomes Referat der Studierendenschaft gemäß § 53 HG NRW und § 27 Abs. 1 lit. d S-Sts\footnote{Satzung der Studierendenschaft der Ruhr-Universität Bochum}. Es arbeitet im Rahmen der Satzung und Ordnungen der Studierendenschaft selbstständig und unabhängig in der Wahrnehmung seiner Aufgaben und bestimmt die Schwerpunkte seiner Arbeit eigenverantwortlich selbst.
+
+\section{Aufgaben und Ziele}
+Zur Vertretung der in \ref{sec:armbsb} Abs. \ref{abs:definition-armbsb} genannten Interessen und Zielen, fokussiert sich die Arbeit des AR-MBSB u.a. auf folgende Schwerpunkte.
+\abs Das AR-MBSB orientiert seine Arbeit an den Grundsätzen der Inklusion, Barrierefreiheit, Selbstbestimmung und Antidiskriminierung im Sinne der UN-Behindertenrechtskonvention, sowie an den Zielen geltender Rechtsprechungen zu diesen Themen, wie beispielsweise dem Grundgesetz (GG), dem Allgemeinen Gleichbehandlungsgesetz (AGG), dem European Accessibility Act (EAA), dem Hochschulgesetz NRW (HG NRW) und weiteren.
+\abs Das AR‑MBSB setzt sich für eine diskriminierungsfreie, inklusive und barrierefreie Studien- und Campusgestaltung sowie für die gleichberechtigte Teilhabe am universitären Leben ein. Dies beinhaltet auch digitale und organisatorische Barrierefreiheit, sowie die Förderung und der Erhalt von Schutz- und Ruheräumen für betroffene Studierende.
+\abs Das AR‑MBSB bietet während der Vorlesungszeit regelmäßig Sprechstunden an. Diese sollen in möglichst barrierefreier Form stattfinden. Ziel ist insbesondere eine Beratung von Betroffenen für Betroffene als Expert:in in eigener Sache, sowie Informationen, Beratung und Unterstützung von Studierenden in studiumsbezogenen Angelegenheiten.
+\abs Die Förderung von Austausch, Information, Vernetzung und Kommunikation zwischen und für Studierenden mit Behinderungen und sonstigen Beeinträchtigungen u.a. durch die Durchführung und Unterstützung barrierefreier Informations-, Bildungs- und Vernetzungsangebote. Dies beinhaltet beispielsweise Treffen, Feiern, Filmvorführungen, Publikationen, digitale Inhalte, Lesungen, usw.
+\abs Die Unterstützung von weiteren Maßnahmen gegen Diskriminierung innerhalb der Hochschule. Dafür beteiligt sich das AR-MBSB auch an Kooperationen mit bereits bestehenden Strukturen und Zusammenschlüssen\footnote{Beispielsweise autonome Referate, Gremien, Ausschüsse, AStA, StuPa, studentische Zusammenschlüsse usw.}, die ebenfalls diese Ziele verfolgen.
+
+\inlinechapter{Organisation und Aufbau}
+
+\section{Referent:innen}
+\abs Referent:innen des AR-MBSB sind alle auf einer Vollversammlung gewählten Referent:innen.
+\abs Referent:innen des AR-MBSB sind verpflichtet ihre Rechte und Pflichten nach bestem Wissen und Gewissen in Absprache mit den anderen Mitgliedern under Berücksichtigung der Aufgaben und Ziele des AR-MBSB und zum Wohle des Referats zu nutzen.
+\abs Referent:innen erhalten entsprechend den Regelungen des AStA eine Aufwandsentschädigung.
+
+\section{Hauptreferent:in}
+\abs Die Referent:innen wählen aus ihrer Mitte eine Hauptreferent:in. Dabei gilt:
+\begin{legalenum}
+	\item Eine Vollversammlung ist für die Wahl nicht erforderlich, eine Sitzung genügt.
+	\item Die Wahl erfolgt mit Zweidrittelmehrheit der amtierenden Referent:innen.
+\end{legalenum}
+\abs Die Hauptreferent:in ist zugleich auch Referent:in.
+\abs Die Hauptreferent:in koordiniert die laufende Arbeit des Referats sowie die Organisation von Sitzungen und Vollversammlungen. Es gilt dabei:
+\begin{legalenum}
+	\item Die Hauptreferent:in verantwortet und organisiert die Arbeit der Referent:innen.
+	\item Die Hauptreferent:in hat für Frist- und Ordnungsgemäße Einladungen für Sitzungen und Vollversammlungen zu sorgen.
+	\item Die Hauptreferent:in repräsentiert das AR-MBSB nach Außen.
+\end{legalenum}
+
+\section{Amtszeiten}\label{sec:Amtszeit}
+\abs Für die Amtszeiten gilt:
+\begin{legalenum}
+\item Die Amtszeit von Referent:innen beträgt ein Jahr. 
+\item Die Amtszeit der Hauptreferent:in beträgt sechs Monate. Die verbleibende Amtszeit als Referent:in bleibt davon unberührt.
+\item Das Amt endet vorzeitig durch Rücktritt, Abwahl, Ausscheiden aus der Studierendenschaft oder Tod.
+\end{legalenum}
+\abs Eine Wiederwahl von Referent:innen und Hauptreferent:innen ist möglich.
+
+\section{Rücktritt}
+\abs Der Rücktritt aus dem AR-MBSB ist das vorzeitige, freiwillige Ausscheiden aus dem AR-MBSB. Dabei gilt:
+\begin{legalenum}
+\item Ein Rücktritt ist sowohl Referent:innen, als auch der Hauptreferent:in mit sofortiger Wirkung und ohne Angabe von Gründen möglich.
+\item Der Rücktritt muss schriftlich bekanntgegeben werden. Dabei sind mindestens Hauptreferent:in (falls vorhanden) und der AStA zu informieren.
+\item Bei einem Rücktritt übernehmen die verbleibenden Referatsmitglieder die zusätzlichen Aufgaben, \ref{sec:Ausscheiden} Art. \ref{abs:Ausscheiden} bleibt daher unberührt.
+\end{legalenum}
+
+\section{Abwahl}
+\abs Über die Abwahl entscheidet eine Vollversammlung, dabei ist die Abwahl von Referent:innen nur aus wichtigem Grund zulässig und muss entsprechend begründet werden. 
+\abs Wichtige Gründe für eine Abwahl sind insbesondere grobe Pflichtverletzungen, diskriminierendes Verhalten, missbräuchliche Verwendung von Referatsmitteln, nachhaltige Störung der Referatsarbeit oder Handlungen gegen die Ziele und Grundsätze des AR‑MBSB.
+
+\section{Ausscheiden}\label{sec:Ausscheiden}
+\abs\label{abs:Ausscheiden} Mit dem Ausscheiden aus dem Amt sind sämtliche dem Referat überlassenen Schlüssel, Zugänge und Gegenstände unverzüglich zurückzugeben. Es muss eine ordentliche Übergabe der Aufgaben an andere Referent:innen erfolgen, soweit möglich.
+\abs Sinkt die Anzahl der Referent:innen unter zwei, ist unverzüglich eine Vollversammlung einzuberufen.
+
+\section{Aufwandsentschädigung}
+	\abs Die Verteilung erfolgt gleichberechtigt durch die Anzahl der Mitglieder im Rahmen der geltenden Höchstgrenzen.
+	\abs Ein Freiwilliger Verzicht auf die Aufwandsentschädigung für beliebige Dauer ist jederzeit und ohne Angabe von Gründen möglich. Die Buchhaltung ist entsprechend zu informieren.
+	\abs Eine unfreiwillige Kürzung der Aufwandsentschädigung kann nur aus einem wichtigen Grund erfolgen und muss mit einer Zweidrittelmehrheit auf einer Sitzung von den Referent:innen beschlossen und begründet werden.
+	Wichtige Gründe sind gegeben, wenn
+\begin{legalenum}
+	\item sich Referent:innen ohne interne Absprachen und ohne Zustimmung länger als einen Monat von der Referatsarbeit zurückziehen.
+	\item Referent:innen über einen längeren Zeitraum aktiv die Referatsarbeit behindern und dadurch nachweislich die Arbeitsfähigkeit des Referats nachhaltig beeinträchtigen.
+\end{legalenum}
+
+\section{Ehrentitel}
+\abs Ehemaligen Referent:innen kann für besondere Verdienste der Ehrentitel ''Ehrenreferent:in des AR‑MBSB'' verliehen werden. Für die Verleihung des Ehrentitels gilt:
+\begin{legalenum}
+\item Im Amt verstorbene Referent:innen wird dieser Ehrentitel automatisch verliehen.
+\item Für die Verleihung ist eine Zweidrittelmehrheit auf einer Sitzung oder Vollversammlung notwendig.
+\end{legalenum}
+\abs  Mit dem Ehrentitel sind keine besonderen Rechte oder Pflichten verbunden.
+
+\inlinechapter{Sitzungen und Vollversammlungen}
+
+\section{Sitzungen und Vollversammlungen}\label{sec:sitzungen}
+\abs Sitzungen dienen insbesondere der Koordination der Referatsarbeit, der Planung von Veranstaltungen sowie der Beratung über Anträge und Projekte.
+\abs Vollversammlungen dienen insbesondere der Wahl und Abwahl von Referent:innen, sowie der Beschlussfassung über Ordnungen und Grundsatzfragen. Die Vollversammlung erfüllt den Zweck der in § 28 Abs. 2 S-Sts vorgesehenen Vollversammlung aller Angehörigen der durch sie vertretenen Gruppe (ARVV).
+\abs Sitzungen und Vollversammlungen sind unter Berücksichtigung der Barrierefreiheit einzuberufen, durchzuführen und angemessen zu protokollieren.
+\abs\label{abs:entitaeten} Für Sitzungen und Vollversammlungen wählen die Anwesenden aus ihrer Mitte Protokollführer:in und Versammlungsleiter:in. Bei Vollversammlungen wird zusätzlich bei Wahlen eine unabhängige, unparteiische Wahlleitung bestimmt, die selbst für keines der Ämter kandidieren kann.
+\abs Das Wort wird regulär in der Reihenfolge der eingegangenen Wortmeldungen erteilt. Die Sitzungsleitung kann jedoch von der Redeliste abweichen, wenn dies für den Fortgang der Sitzung sinnvoll erscheint.
+
+\section{Einberufung und Fristen}
+\abs Sitzungen und Vollversammlungen sind grundsätzlich öffentlich, die Einberufung erfolgt deshalb durch die hochschulöffentliche Einladung unter Angabe einer vorläufigen Tagesordnung, sowie Ort und Zeitpunkt des Sitzungsbeginns.
+\abs Sitzungen werden nach Ermessen des AR-MBSB, Vollversammlungen mindestens einmal im Kalenderjahr innerhalb der Vorlesungszeit einberufen.
+\abs Sitzungen werden durch die Hauptreferent:in oder ersatzweise durch eine Referent:in mindestens 6 Kalendertage vor dem Sitzungstag einberufen. 
+\abs Vollversammlungen werden durch die Hauptreferent:in oder ersatzweise durch eine:n Referent:in mindestens 14 Kalendertage vor dem Sitzungstag einberufen. Sind keine Referent:innen mehr im Amt, kann der AStA die Vollversammlung einberufen.
+
+\section{Beschlussfähigkeit}
+\abs Die Sitzung oder Vollversammlung ist beschlussfähig, wenn ordnungsgemäß einberufen wurde und die Beschlussfähigkeit durch die Sitzungsleitung durch die Anwesenheit von mindestens der Hälfte der amtierenden Referent:innen festgestellt wurde.
+\abs Die Beschlussfähigkeit bleibt bis zur Feststellung der Beschlussunfähigkeit bestehen. Bestehen Zweifel an der Beschlussfähigkeit, muss diese erneut festgestellt werden. \abs Ist die Sitzung nicht mehr beschlussfähig, endet sie.
+
+\section{Rede-, Antrags- und Stimmrecht}
+\abs Rede-, Antrags- und Stimmrecht bei Sitzungen haben alle amtierenden Referent:innen des AR-MBSB.
+\abs Rede-, Antrags- und Stimmrecht bei Vollversammlungen haben die vom Referat vertretenen Studierenden der RUB, sowie alle amtierenden Referent:innen des AR-MBSB.
+
+\section{Anträge}
+\abs Anträge sind schriftlich vor Sitzungsbeginn unter Angabe der Antragstellerin, des Antragstitels, der Antragsforderung und einer Antragsbegründung in Textform (formgerecht) zu stellen.
+\abs Anträge können auch während der Sitzung unter Begründung der Dringlichkeit als Dringlichkeitsantrag gestellt werden, dabei wird jedoch zunächst abgestimmt, ob der Antrag auf der Sitzung behandelt werden soll.
+\abs Anträge, die nicht allen anwesenden Mitgliedern in Textform zugänglich gemacht wurden, sind vollständig zu verlesen.
+\abs Eine Antragstellerin kann ihren Antrag jederzeit zurückziehen. Jedes anwesende Mitglied kann einen zurückgezogenen Antrag übernehmen.
+
+\section{Abstimmungen}
+\abs Abstimmungen erfolgen grundsätzlich offen per Handzeichen.
+\abs Anträge und Beschlüsse gelten als angenommen, wenn die Anzahl der Stimmen JA die der Stimmen NEIN übersteigt (einfache Mehrheit), sofern Gesetze, Satzungen oder Geschäftsordnungen im vorliegenden Fall keine abweichende Regelungen vorsehen. In diesem Fall gelten die abweichenden Regelungen.
+\abs Die Abstimmungsmöglichkeiten sind JA, NEIN und ENTHALTUNG.
+\abs Unmittelbar nach der Bekanntgabe des Abstimmungsergebnisses durch die Sitzungsleitung kann bei begründetem Zweifel an der Richtigkeit der Auszählung die Wiederholung der Abstimmung verlangt werden.
+
+\section{Wahlen}
+\abs Wahlen erfolgen grundsätzlich offen per Handzeichen, sofern geheime Wahlen nicht explizit von einer stimmberechtigten anwesenden Person gefordert werden, und werden von der Wahlleitung (\ref{sec:sitzungen} Abs. \ref{abs:entitaeten}) durchgeführt.
+\abs Die Wahl zur Hauptreferent:in ist auf einer Sitzung ohne Wahlleitung möglich.
+\abs Die Wahlleitung eröffnet und schließt die Wahlgänge, leitet die Stimmenauszählung, gibt nach dem Wahlgang das Abstimmungsergebnis bekannt und fragt die Gewählten, sofern sie anwesend sind, ob sie die Wahl annehmen.
+\abs Die Abstimmungsmöglichkeiten sind JA, NEIN und ENTHALTUNG.
+\abs Als Referent:in gewählt ist, wenn die Anzahl der Stimmen JA die der Stimmen NEIN übersteigt (einfache Mehrheit), sofern Gesetze, Satzungen oder Geschäftsordnungen im vorliegenden Fall keine abweichende Regelungen vorsehen.
+\abs Sofern nur eine Person als Referent:in kandidiert und das Referat keine amtierenden Referent:innen hat, ist die Person gewählt, wenn es mindestens eine JA Stimme gibt.
+\abs Die Regelungen zu Wahlen sind auf Abwahlen entsprechend anzuwenden.
+
+\section{Protokolle}
+\abs Anträge und Beschlüsse sind in einem Protokoll festzuhalten und zusammen mit den Protokollen in geeigneter Weise bekannt zu geben und zugänglich zu machen.
+\abs Das Protokoll soll den Verlauf der Sitzung oder Vollversammlung, sowie Sachdiskussionen und Ergebnisfindungen transparent nachvollziehbar wiedergeben. Dazu soll das Protokoll mindestens folgende Informationen enthalten:
+\begin{legalenum}
+\item Beginn und Ende der Sitzung,
+\item die Tagesordnung,
+\item die Anwesenheit der Mitglieder, sowie verspätetes Eintreffen oder vorzeitiges Verlassen der Sitzung,
+\item die Antragstexte der Anträge und Dringlichkeitsanträge,
+\item alle Abstimmungsergebnisse,
+\item den überwiegenden sinngemäßen Inhalt der Redebeiträge
+\end{legalenum}
+
+\section{Unterbrechungen}
+Wenn eine ordnungsgemäße Durchführung der Sitzung oder Vollversammluing nicht gewährleistet werden kann, kann die Sitzungsleitung die Sitzung befristet für maximal 72 Stunden unterbrechen. Zeitpunkt und Ort der Fortsetzung sind bei der Unterbrechung bekannt zu geben.
+
+\section{Sitzungen und Beschlüsse in elektronischer Kommunikation}
+Sitzungen und Vollversammlungen können in elektronischer Kommunikation tagen und in elektronischer Kommunikation Beschlüsse fassen.
+
+\inlinechapter{Schlussbestimmungen}
+
+\section{Hochschulöffentliche Bekanntmachungen}
+Soweit in eine hochschulöffentliche Bekanntmachung gefordert wird, so erfolgt diese mindestens durch Online-Publikation auf der Internetpräsenz des AR-MBSB und via E-Mail an die entsprechenden Stellen des StuPa und AStA.
+
+\section{Ordnungssänderungen}
+\abs Änderungen dieser Ordnung bedürfen einer Zweidrittelmehrheit der anwesenden Stimmberechtigten einer Vollversammlung.
+\abs Diese Ordnung tritt mit ihrer Beschlussfassung unmittelbar und bis zur Änderung oder Ersetzung durch eine neue Ordnung in Kraft, sofern nichts anderes bestimmt wird.
+\abs Diese Ordnung muss bei Inkrafttreten hochschulöffentlich bekanntgegeben und öffentlich verfügbar gemacht werden.
+
+\chapter*{Beschlossen}
+
+\begin{tabular}{p{6cm}p{6cm}}
+Ort, Datum & Ort, Datum \\[3em]
+\hrulefill & \hrulefill \\
+AR-MBSB & Protokollant:in
+\end{tabular}
+
+\end{document}
